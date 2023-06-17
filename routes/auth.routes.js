@@ -31,7 +31,7 @@ router.post("/signup", (req, res, next) => {
     })
     .then((user) => {
       console.log("new user", user);
-      res.redirect("/");
+      res.redirect("/login");
     })
     .catch((err) => console.log("err", err));
 });
@@ -49,7 +49,7 @@ router.post("/login", (req, res) => {
   const { username, password } = req.body;
   if (username === "" || password === "") {
     res.render("/login", {
-      errorMessage: "Both fields required",
+      errorMessage: "both fields required",
     });
     return;
   }
@@ -58,12 +58,19 @@ router.post("/login", (req, res) => {
       res.render("/login", { errorMessage: "username not found" });
       return;
     } else if (bcrypt.compareSync(password, user.password)) {
-        req.session.currentUser = user
+      req.session.currentUser = user;
       res.redirect("/userProfile");
     } else {
       res.render("auth/login", { errorMessage: "wrong password" });
     }
   });
 });
+
+router.post("/logout", (req, res, next) => {
+    req.session.destroy((err) => {
+      if (err) next(err);
+      res.redirect("/");
+    });
+  });
 
 module.exports = router;

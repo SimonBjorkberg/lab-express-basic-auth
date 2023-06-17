@@ -9,15 +9,16 @@
   </head>
 
   <body>
-    <a href="/">Home Page</a>
-    <span> | </span>
-    <a href="/userProfile">Profile</a>
-    <span> | </span>
-    <a href="/logout">Logout</a>
-    <span> | </span>
-    <a href="/signup">Signup</a>
-    <span> | </span>
-    <a href="/login">Login</a>
+<nav>
+  <span class="username"> {{ userInSession.uername }}</span>
+  <a href="/">Home Page</a>
+  <a href="/userProfile">Profile</a>
+  <a href="/signup">Signup</a>
+  <a href="/login">Login</a>
+  <form id="logout-form" action="/logout" method="POST">
+    <button class="logout-button">Logout</button>
+  </form>
+</nav>
 
     {{{body}}}
 

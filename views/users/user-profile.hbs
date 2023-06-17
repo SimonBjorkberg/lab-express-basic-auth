@@ -1,9 +1,11 @@
+<div class="profile-container">
 {{#if userInSession}}
-  <h2>Welcome, {{ userInSession.username }}</h2>
+  <h2>Welcome {{ userInSession.username }}</h2>
   <p>This is your profile page</p>
   <button>
-    <a href="/userProfile">Reload the page</a>
+    <a href="/userProfile">Reload this page</a>
   </button>
 {{else}}
-  <p>Still no logged in user, sorry!</p>
+  <p>Not logged in</p>
 {{/if}}
+</div>

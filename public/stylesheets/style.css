@@ -6,3 +6,187 @@ body {
 a {
   color: #00B7FF;
 }
+
+/* nav bar */
+
+nav {
+  background-color: #8f8f8f;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 50px;
+}
+
+#logout-form {
+  margin: 0;
+}
+
+.logout-button {
+  background-color: #dd4b39;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #c0382b;
+}
+
+
+/* signup page */
+.signup-container {
+  max-width: 300px;
+  margin: 50px auto;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.signup-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+.signup-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-container label {
+  margin: 10px 0;
+}
+
+.signup-container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.signup-container button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-container button:hover {
+  background-color: #45a049;
+}
+
+.signup-container p {
+  color: #ff0000;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+/* Login page */
+.login-container {
+  max-width: 300px;
+  margin: 50px auto;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.login-container button {
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-container button:hover {
+  background-color: #0f8ae6;
+}
+
+.login-container p {
+  color: #ff0000;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+/* Profile page */
+.profile-container {
+  max-width: 300px;
+  margin: 50px auto;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.profile-container p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.profile-container button {
+  display: block;
+  margin: 0 auto;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.profile-container button:hover {
+  background-color: #0f8ae6;
+}
+
+.profile-container a {
+  color: #fff;
+  text-decoration: none;
+}
