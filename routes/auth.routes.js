@@ -2,13 +2,13 @@ const { Router } = require("express");
 const router = new Router();
 
 const User = require("../models/User.model");
-const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js')
+const { isLoggedIn, isLoggedOut } = require("../middleware/route-guard.js");
 
 const bcrypt = require("bcryptjs");
 const salt = 10;
 
 router.get("/signup", isLoggedOut, (req, res, next) => {
-  res.render("./auth/sign-up");
+  res.render("./auth/sign-up", { userInSession: req.session.currentUser });
 });
 
 router.post("/signup", (req, res, next) => {
@@ -38,7 +38,7 @@ router.post("/signup", (req, res, next) => {
 });
 
 router.get("/login", isLoggedOut, (req, res, next) => {
-  res.render("./auth/login");
+  res.render("./auth/login", { userInSession: req.session.currentUser });
 });
 
 router.get("/userProfile", isLoggedIn, (req, res) => {
@@ -68,18 +68,18 @@ router.post("/login", (req, res) => {
 });
 
 router.post("/logout", (req, res, next) => {
-    req.session.destroy((err) => {
-      if (err) next(err);
-      res.redirect("/");
-    });
+  req.session.destroy((err) => {
+    if (err) next(err);
+    res.redirect("/");
   });
+});
 
-router.get('/main', isLoggedIn, (req, res, next) => {
-  res.render('auth/main')
-})
+router.get("/main", isLoggedIn, (req, res, next) => {
+  res.render("auth/main", { userInSession: req.session.currentUser });
+});
 
-router.get('/private', isLoggedIn, (req, res, next) => {
-  res.render('auth/private')
-})
+router.get("/private", isLoggedIn, (req, res, next) => {
+  res.render("auth/private", { userInSession: req.session.currentUser });
+});
 
 module.exports = router;

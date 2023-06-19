@@ -1,3 +1,17 @@
+<nav>
+  {{#if userInSession}}
+    <a href="/">Home Page</a>
+    <a href="/userProfile">Profile</a>
+    <form id="logout-form" action="/logout" method="POST">
+      <button class="logout-button">Logout</button>
+    </form>
+  {{else}}
+    <a href="/">Home Page</a>
+    <a href="/signup">Sign up</a>
+    <a href="/login" class="login-button">Log in</a>
+  {{/if}}
+</nav>
+
 <div class="main-container">
   <h1>Super Private Cool Cat</h1>
   <img

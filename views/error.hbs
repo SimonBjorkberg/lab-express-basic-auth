@@ -1,2 +1,15 @@
+<nav>
+  {{#if userInSession}}
+    <a href="/">Home Page</a>
+    <a href="/userProfile">Profile</a>
+    <form id="logout-form" action="/logout" method="POST">
+      <button class="logout-button">Logout</button>
+    </form>
+  {{else}}
+    <a href="/">Home Page</a>
+    <a href="/signup">Sign up</a>
+    <a href="/login" class="login-button">Log in</a>
+  {{/if}}
+</nav>
 <h1>Error!</h1>
 <h2>There was an error on the server! Check the console!</h2>
