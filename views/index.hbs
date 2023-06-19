@@ -1,2 +1,7 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="index-container">
+  <h1>{{title}}</h1>
+  {{#if userInSession}}
+  <p>Welcome {{userInSession.username}}</p>
+        <a href="/userProfile">Profile Page</a>
+  {{/if}}
+</div>

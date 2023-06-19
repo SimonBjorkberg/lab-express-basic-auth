@@ -2,11 +2,12 @@ const { Router } = require("express");
 const router = new Router();
 
 const User = require("../models/User.model");
+const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js')
 
 const bcrypt = require("bcryptjs");
 const salt = 10;
 
-router.get("/signup", (req, res, next) => {
+router.get("/signup", isLoggedOut, (req, res, next) => {
   res.render("./auth/sign-up");
 });
 
@@ -36,11 +37,11 @@ router.post("/signup", (req, res, next) => {
     .catch((err) => console.log("err", err));
 });
 
-router.get("/login", (req, res) => {
+router.get("/login", isLoggedOut, (req, res, next) => {
   res.render("./auth/login");
 });
 
-router.get("/userProfile", (req, res) => {
+router.get("/userProfile", isLoggedIn, (req, res) => {
   res.render("users/user-profile", { userInSession: req.session.currentUser });
 });
 
@@ -59,7 +60,7 @@ router.post("/login", (req, res) => {
       return;
     } else if (bcrypt.compareSync(password, user.password)) {
       req.session.currentUser = user;
-      res.redirect("/userProfile");
+      res.redirect("/");
     } else {
       res.render("auth/login", { errorMessage: "wrong password" });
     }
@@ -72,5 +73,13 @@ router.post("/logout", (req, res, next) => {
       res.redirect("/");
     });
   });
+
+router.get('/main', isLoggedIn, (req, res, next) => {
+  res.render('auth/main')
+})
+
+router.get('/private', isLoggedIn, (req, res, next) => {
+  res.render('auth/private')
+})
 
 module.exports = router;
